@@ -5,7 +5,7 @@
            xsi:type="MailApp">
 
   <Id>e61470c5-e3b6-484f-825b-b3ff55e89c6f</Id>
-  <Version>1.0.0.3</Version>
+  <Version>1.0.0.4</Version>
   <ProviderName>BVH</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
 
@@ -14,7 +14,6 @@
 
   <IconUrl DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/assets/icon-128.png"/>
-  <SupportUrl DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/"/>
 
   <AppDomains>
     <AppDomain>https://danielhdevelope.github.io</AppDomain>
@@ -33,12 +32,10 @@
 
   <Permissions>ReadWriteItem</Permissions>
 
-  <!-- WICHTIG: FormSettings muss vorhanden sein -->
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/taskpane.html"/>
-        <RequestedHeight>300</RequestedHeight>
       </DesktopSettings>
     </Form>
     <Form xsi:type="ItemEdit">
@@ -54,96 +51,5 @@
   </Rule>
 
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
-
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
-                    xsi:type="VersionOverridesV1_0">
-
-    <Requirements>
-      <bt:Sets DefaultMinVersion="1.3">
-        <bt:Set Name="Mailbox"/>
-      </bt:Sets>
-    </Requirements>
-
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-
-          <FunctionFile resid="Commands.Url"/>
-
-          <!-- READ -->
-          <ExtensionPoint xsi:type="MessageReadCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="group1">
-                <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="readButton">
-                  <Label resid="ButtonLabel"/>
-                  <Supertip>
-                    <Title resid="ButtonLabel"/>
-                    <Description resid="ButtonTooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon16"/>
-                    <bt:Image size="32" resid="Icon32"/>
-                    <bt:Image size="80" resid="Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-
-          <!-- COMPOSE -->
-          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="group2">
-                <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="composeButton">
-                  <Label resid="ButtonLabel"/>
-                  <Supertip>
-                    <Title resid="ButtonLabel"/>
-                    <Description resid="ButtonTooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon16"/>
-                    <bt:Image size="32" resid="Icon32"/>
-                    <bt:Image size="80" resid="Icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-
-    <Resources>
-      <bt:Images>
-        <bt:Image id="Icon16" DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/assets/icon-16.png"/>
-        <bt:Image id="Icon32" DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/assets/icon-32.png"/>
-        <bt:Image id="Icon80" DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/assets/icon-80.png"/>
-      </bt:Images>
-
-      <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://danielhdevelope.github.io/bvh_outlook_import/taskpane.html"/>
-      </bt:Urls>
-
-      <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="BVH Import"/>
-        <bt:String id="ButtonLabel" DefaultValue="Import öffnen"/>
-      </bt:ShortStrings>
-
-      <bt:LongStrings>
-        <bt:String id="ButtonTooltip" DefaultValue="Öffnet das BVH Import Fenster."/>
-      </bt:LongStrings>
-    </Resources>
-
-  </VersionOverrides>
 
 </OfficeApp>
